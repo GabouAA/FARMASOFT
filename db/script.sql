@@ -1,6 +1,6 @@
 --- CREATE DATABASE
-CREATE DATABASE FarmaSoft;
-
+CREATE DATABASE farmasoft;
+\c farmasoft;
 --- CREATE TABLES
 -- Rol entity
 create table rol (             -- Rol
