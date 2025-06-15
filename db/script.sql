@@ -2,16 +2,16 @@
 CREATE DATABASE farmasoft;
 \c farmasoft;
 --- CREATE TABLES
--- Rol entity
+
 create table rol (             -- Rol
-    rol_id serial primary key, --- Id_Rol
+    rol_id int primary key not null, --- Id_Rol
     name varchar(50) not null, --- Nombre
     description text           --- Descripción
 );
 
 -- Users entity
 create table users (                           --- Usuarios
-    user_id serial primary key,                --- Id_Usuarios
+    user_id int primary key not null,                --- Id_Usuarios
     rol_id int not null,                       --- Id_Rol
     name varchar(100) not null,                --- Nombre
     last_name varchar(100) not null,           --- Apellido
@@ -22,14 +22,14 @@ create table users (                           --- Usuarios
 
 -- Category entity
 create table categories(              -- Categorías
-    category_id serial primary key,  -- Id_Categoria
+    category_id int primary key not null,  -- Id_Categoria
     name varchar(100) not null,      -- Nombre
     description text                 -- Descripción
 );
 
 -- Supplieriers entity
 create table suppliers (              -- Proveedores
-    id_supplier serial primary key,   -- Id_Proveedores
+    id_supplier int primary key not null,   -- Id_Proveedores
     name varchar(100) not null,       -- Nombre
     address text,                     -- Dirección
     number_phone varchar(20),         -- Número_Celular
@@ -38,7 +38,7 @@ create table suppliers (              -- Proveedores
 
 -- Products entity
 create table products (              -- Productos
-    product_id serial primary key,   -- Id_Producto
+    product_id int primary key not null,   -- Id_Producto
     category_id int not null,        -- Id_Categoria
     id_supplier int not null,        -- Id_Proveedores
     name varchar(100) not null,      -- Nombre
@@ -53,7 +53,7 @@ create table products (              -- Productos
 
 -- Shipments entity
 create table shipments (           -- Envios
-    emisor_id serial primary key,  -- Id_Emisor
+    emisor_id int primary key not null,  -- Id_Emisor
     name varchar(100) not null,    -- Nombre
     number_phone varchar(20),      -- Número_Celular
     transport varchar(100)         -- Tranporte
@@ -61,7 +61,7 @@ create table shipments (           -- Envios
 
 -- Orders entity
 create table orders (              -- Ordenes
-    order_id serial primary key,   -- Id_Orden
+    order_id int primary key not null,   -- Id_Orden
     user_id int not null,          -- Id_Usuario
     product_id int not null,       -- Id_Producto
     emisor_id int not null,        -- Id_Emisor
